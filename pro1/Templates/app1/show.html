@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>show</title>
+{% endblock %}
+{% block content %}
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>F_Name</th>
+        <th>M_Name</th>
+        <th>L_Name</th>
+        <th>Address</th>
+        <th>Mobile_NO</th>
+        <th>Date_Of_Birth</th>
+        <th>Age</th>
+        <th>Profile_picture</th>
+        <th>About</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for scolorship in obj %}
+    <tr>
+        <td>{{scolorship.Id}}</td>
+        <td>{{scolorship.First_Name}}</td>
+        <td>{{scolorship.Middle_Name}}</td>
+        <td>{{scolorship.Last_Name}}</td>
+        <td>{{scolorship.Address}}</td>
+        <td>{{scolorship.Mobile_NO}}</td>
+        <td>{{scolorship.Date_Of_Birth }}</td>
+        <td>{{scolorship.Age}}</td>
+        <td><img src="{{scolorship.Profile_Picture.url}}"height="200px" width="200px"></td>
+        <td>
+            <a href="/a1/uv/{{scolorship.Id}}/"><button class="btn btn-warning">Update</button></a>
+            <a href="/a1/dv/{{scolorship.Id}}"><button class="btn btn-success">delete</button></a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{%  endblock %}
